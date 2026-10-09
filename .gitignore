@@ -1,0 +1,63 @@
+# ProdOS .gitignore
+# Binary files belong in a shared drive, not git.
+
+# Office documents
+*.pptx
+*.docx
+*.xlsx
+
+# PDFs
+*.pdf
+
+# Audio/video (exceed GitHub's file size limits; belong in a shared drive)
+*.mp3
+*.mp4
+*.wav
+*.m4a
+
+# Images (if any get added)
+*.png
+*.jpg
+*.jpeg
+*.gif
+
+# OS files
+.DS_Store
+Thumbs.db
+~$*
+
+# Temp files
+*.tmp
+*.bak
+
+# Local secrets and credentials
+.env
+
+# Archive staging folder (for moving files out of repo)
+_archive_move_out/
+
+# Shared team ProdOS repo (mounted here as its own git repo; synced via sync-shared skill)
+shared/
+
+# Git worktrees
+.worktrees/
+
+# MCP server dependencies (reinstall with npm install inside each server folder)
+mcp-servers/*/node_modules/
+
+# MCP project config (may contain credentials in env blocks; user-local only)
+.mcp.json
+
+# Ephemeral session state: which window owns the background agent crons.
+# Written by /boot, read by /standup. Changes every session; no value in history.
+state/agents.md
+
+# Ephemeral drain marker: how far /catchup has read agent output.
+state/catchup.md
+
+# Diagram skill: the vendored install is re-created from a pinned commit, working folders are scratch
+skills/Diagram/vendor/
+.archify/
+
+# Per-user Claude Code permission allowlist (README: "not shipped")
+.claude/settings.local.json
